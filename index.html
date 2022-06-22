@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    <script>
+        function play(playerChoice,compChoice){
+            if (playerChoice === compChoice){
+                console.log("Its a Draw")
+            }
+            else if(playerChoice === 1 && compChoice === 2 )
+                console.log("Computer picked paper, you lose!")
+            
+            else if(playerChoice === 1 && compChoice === 3 )
+            console.log("Computer picked scissors, you win!")
+            else if(playerChoice === 2 && compChoice === 1 )
+            console.log("Computer picked rock, you win!")
+            else if(playerChoice === 2 && compChoice === 3 )
+            console.log("Computer picked scissors, you lose!")
+            else if(playerChoice === 3 && compChoice === 1 )
+            console.log("Computer picked rock, you lose!")
+            else if(playerChoice === 3 && compChoice === 2 )
+            console.log("Computer picked paper, you win!")
+            return
+        }
+
+        let playerChoice = parseInt(prompt("type 1 for rock, 2 for Paper or 3 for Scissors"))
+        let compChoice = Math.floor(Math.random() * 3) + 1;
+        play(playerChoice,compChoice)
+        
+    </script>
+</body>
+</html>
