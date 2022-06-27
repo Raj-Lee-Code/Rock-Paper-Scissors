@@ -8,29 +8,23 @@
 </head>
 <body>
     <script>
-        function play(playerChoice,compChoice){
+       function play(playerChoice,compChoice,outcome,array){
             if (playerChoice === compChoice){
                 console.log("Its a Draw")
             }
-            else if(playerChoice === 1 && compChoice === 2 )
-                console.log("Computer picked paper, you lose!")
-            
-            else if(playerChoice === 1 && compChoice === 3 )
-            console.log("Computer picked scissors, you win!")
-            else if(playerChoice === 2 && compChoice === 1 )
-            console.log("Computer picked rock, you win!")
-            else if(playerChoice === 2 && compChoice === 3 )
-            console.log("Computer picked scissors, you lose!")
-            else if(playerChoice === 3 && compChoice === 1 )
-            console.log("Computer picked rock, you lose!")
-            else if(playerChoice === 3 && compChoice === 2 )
-            console.log("Computer picked paper, you win!")
+            else if(((array[playerChoice]+2)%3) != compChoice){
+		        console.log("You win! The computer picked " + outcome[compChoice])
+	        }
+            else if(((array[playerChoice]+2)%3) === compChoice){
+		        console.log("You lose! The computer picked " +outcome[compChoice])
+	        }
             return
         }
-
         let playerChoice = parseInt(prompt("type 1 for rock, 2 for Paper or 3 for Scissors"))
         let compChoice = Math.floor(Math.random() * 3) + 1;
-        play(playerChoice,compChoice)
+	let outcome = {[1]:"rock",[2]:"scissors",[3]:"paper"} 
+	let array = [0,1,2,3]
+        play(playerChoice,compChoice, outcome, array)
         
     </script>
 </body>
