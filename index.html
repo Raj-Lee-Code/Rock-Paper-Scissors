@@ -9,26 +9,35 @@
 <body>
     <script>
        function play(playerChoice,compChoice){
-        
-       let outcome = {[1]:"rock",[2]:"scissors",[3]:"paper"} 
 
-            if (playerChoice === compChoice){
-                console.log("Its a Draw")
-            }
-            else if(((playerChoice+2)%3) != compChoice){
-		        console.log("You win! The computer picked " + outcome[compChoice])
+       let outcome = {[0]:"rock",[1]:"scissors",[2]:"paper"} 
+       let outcomeplayer  = {[1]:"rock",[2]:"scissors",[3]:"paper"} 
+
+            if (playerChoice-1 === compChoice){
+                console.log("Its a Draw! Computer picked "+ outcome[compChoice] + " and you picked "+outcomeplayer[playerChoice] )
+            }            
+            else if((array[playerChoice]%3) === compChoice){
+		        console.log("You win! The computer picked " + outcome[compChoice]+" and you picked "+ outcomeplayer[playerChoice])
 	        }
-            else if(((playerChoice+2)%3) === compChoice){
-		        console.log("You lose! The computer picked " +outcome[compChoice])
+            else if((array[playerChoice]%3) != compChoice){
+		        console.log("You lose! The computer picked " +outcome[compChoice]+" and you picked "+ outcomeplayer[playerChoice])
 	        }
+
             return
-        }
+    }
         let playerChoice = parseInt(prompt("type 1 for rock, 2 for Paper or 3 for Scissors"))
-        let compChoice = Math.floor(Math.random() * 3) + 1;
-	
-	let array = [0,1,2,3]
-        play(playerChoice,compChoice)
-        
+        let compChoice = Math.floor(Math.random() * 3) ;
+        let array = [0,1,2,3]
+        /*play(playerChoice,compChoice)*/
+        play(1,0)
+        play(1,1)
+        play(1,2)
+        play(2,0)
+        play(2,1)
+        play(2,2)
+        play(3,0)
+        play(3,1)
+        play(3,2)        
     </script>
 </body>
 </html>
